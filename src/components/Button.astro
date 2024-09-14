@@ -1,0 +1,35 @@
+---
+import "../styles/global.css";
+---
+
+<div class="wrapper">
+  <button>Request Invite</button>
+</div>
+
+<style>
+  button {
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+    border: none;
+    border-radius: 2rem;
+    align-self: center;
+    width: 10em;
+    height: 45px;
+    font-family: "Public Sans Variable", sans-serif;
+    font-weight: var(--fw-500);
+    font-size: var(--fs-400);
+    color: var(--White-white);
+    background: linear-gradient(
+      90deg,
+      hsla(136, 65%, 51%, 1) 30%,
+      hsla(192, 70%, 51%, 1) 100%
+    );
+    background-size: 200% 100%;
+    background-position: 100% 0;
+    transition: background-position 0.5s;
+  }
+
+  button:hover {
+    background-position: 0 0;
+  }
+</style>

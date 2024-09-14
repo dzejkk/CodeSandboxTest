@@ -1,0 +1,68 @@
+---
+import "../styles/global.css";
+import Button from "./Button.astro";
+---
+
+<header>
+  <nav>
+    <a href=""><img src="../../images/logo.svg" alt="logo" /></a>
+    <ul>
+      <li><a href="">Home</a></li>
+      <li><a href="">About</a></li>
+      <li><a href="">Contact</a></li>
+      <li><a href="">Blog</a></li>
+      <li><a href="">Careers</a></li>
+    </ul>
+    <Button />
+  </nav>
+</header>
+
+<style>
+  header {
+    z-index: 2;
+    position: relative;
+    background-color: white;
+  }
+
+  nav {
+    height: 80px;
+    max-width: 1440px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  nav ul {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    font-weight: var(--fw-300);
+    letter-spacing: -1px;
+  }
+
+  ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+  }
+  ul li {
+    width: 60px;
+    text-align: center;
+  }
+
+  ul a {
+    display: block;
+    text-decoration: none;
+    color: var(--Grayish-Blue);
+    transition: 0.2s ease-in-out;
+    border-bottom: 3px solid transparent;
+    padding-block: 24px;
+  }
+
+  ul a:hover {
+    text-shadow: 1px 0 black;
+    color: black;
+    border-bottom-color: var(--Lime-Green);
+  }
+</style>

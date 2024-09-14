@@ -1,0 +1,40 @@
+---
+import "../styles/global.css";
+
+const { image, heading, content } = Astro.props;
+---
+
+<div class="card">
+  <img
+    src={image}
+    alt="online"
+    class="main-image"
+    style={{ marginBlockEnd: "3rem" }}
+  />
+  <h3>{heading}</h3>
+  <p>{content}</p>
+</div>
+
+<!-- STYLES -->
+
+<style>
+  .card {
+    max-width: 18em;
+  }
+
+  .card > * {
+    margin-block-end: 1em;
+  }
+
+  img {
+    margin-block-end: 1rem;
+  }
+
+  h3 {
+    font-weight: var(--fw-400);
+  }
+
+  p {
+    color: var(--Grayish-Blue);
+  }
+</style>
