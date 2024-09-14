@@ -1,0 +1,14 @@
+---
+import "../styles/global.css";
+
+const { image, author, heading, paragraph } = Astro.props;
+---
+
+<article>
+  <div>
+    <img src={image} alt="context-image" />
+    <p>{author}</p>
+    <h3>{heading}</h3>
+    <p>{paragraph}</p>
+  </div>
+</article>

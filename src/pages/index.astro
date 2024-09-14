@@ -1,8 +1,10 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
 import Button from "../components/Button.astro";
-const pageTitle = "HomePage";
 import Card from "../components/Card.astro";
+import Article from "../components/Article.astro";
+
+const pageTitle = "HomePage";
 ---
 
 <MainLayout pageTitle={pageTitle}>
@@ -62,9 +64,24 @@ import Card from "../components/Card.astro";
       </div>
     </div>
   </section>
+
+  <!-- Section 3 -->
+  <section class="section-3">
+    <div>
+      <h2>Latest Articles</h2>
+      <div class="article-contianer">
+        <Article
+          image="../../images/image-currency.jpg"
+          author="by Jakub Kontra"
+          heading="recieve money in any currency with no fees"
+          paragraph="The world is getting smaller"
+        />
+      </div>
+    </div>
+  </section>
 </MainLayout>
 
-<!--CSS -->
+<!--CSS ----------------------------------------------------------------------------------->
 
 <style>
   .whole-wrapper {
@@ -75,7 +92,7 @@ import Card from "../components/Card.astro";
     background-position: 45em -13em;
     background-attachment: fixed;
 
-    height: 75dvh;
+    min-height: 75dvh;
   }
 
   .full-bleed {
@@ -115,6 +132,7 @@ import Card from "../components/Card.astro";
   }
 
   .main-image {
+    width: 140%;
     position: relative;
     z-index: 1;
   }
@@ -134,6 +152,7 @@ import Card from "../components/Card.astro";
 
   .second-section-wrapper {
     max-width: 1440px;
+    min-height: 80dvh;
     margin: auto;
     padding: 1rem;
   }
@@ -157,4 +176,9 @@ import Card from "../components/Card.astro";
   }
 
   /*third section*/
+
+  .section-3 {
+    background-color: var(--Very-Light-Gray);
+    min-height: 80dvh;
+  }
 </style>
