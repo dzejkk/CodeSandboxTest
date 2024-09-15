@@ -1,21 +1,64 @@
 ---
 import "../styles/global.css";
-
-const { image, author, heading, paragraph } = Astro.props;
+const { title, url, img, author, description } = Astro.props;
 ---
 
 <article>
-  <div>
-    <img src={image} alt="context-image" />
+  <li>
+    <img src={img} alt="" />
     <p>{author}</p>
-    <h3>{heading}</h3>
-    <p>{paragraph}</p>
-  </div>
+    <a href={url}>{title}</a>
+    <p>{description}</p>
+  </li>
 </article>
 
 <style>
+  img {
+    display: block;
+    width: 322px;
+    height: 270px;
+    border-radius: 20px;
+  }
   article {
     background-color: var(--White-white);
     max-width: 18em;
+    border-radius: 20px;
+
+    color: black;
+    list-style: none;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+
+    transition: 0.3s ease-in-out;
+  }
+
+  p {
+    color: var(--Grayish-Blue);
+    font-size: var(--fs-300);
+    padding-inline: 1rem;
+  }
+
+  a {
+    display: block;
+    padding: 1rem;
+    text-decoration: none;
+    color: black;
+    width: 15rem;
+  }
+
+  a:hover {
+    color: var(--Lime-Green);
+  }
+
+  li {
+    max-width: 20em;
+    height: 28em;
+  }
+
+  li > * {
+    padding-block-end: 1rem;
+  }
+
+  article:hover {
+    transform: scale(1.05);
   }
 </style>

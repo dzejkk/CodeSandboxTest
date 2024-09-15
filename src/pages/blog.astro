@@ -1,0 +1,28 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+import Article from "../components/Article.astro";
+const pageTitle = "My Money Blog";
+
+const allPosts = await Astro.glob("./posts/*.md");
+---
+
+<MainLayout pageTitle={pageTitle}>
+  <h1>My Astro Learning Blog</h1>
+  <p>This is where I will post about my journey learning Astro.</p>
+  <ul>
+    {
+      allPosts.map((post) => (
+        <li>
+          <a href={post.url}>{post.frontmatter.title}</a>
+        </li>
+      ))
+    }
+  </ul>
+</MainLayout>
+
+<style>
+  ul {
+    padding: 1rem;
+    list-style: decimal;
+  }
+</style>

@@ -5,6 +5,9 @@ import Card from "../components/Card.astro";
 import Article from "../components/Article.astro";
 
 const pageTitle = "HomePage";
+const allPosts = await Astro.glob("./posts/*.md");
+
+const limitPosts = allPosts.slice(0, 4);
 ---
 
 <MainLayout pageTitle={pageTitle}>
@@ -67,118 +70,141 @@ const pageTitle = "HomePage";
 
   <!-- Section 3 -->
   <section class="section-3">
-    <div>
+    <div class="section-3-wrapper">
       <h2>Latest Articles</h2>
       <div class="article-contianer">
-        <Article
-          image="../../images/image-currency.jpg"
-          author="By Claire Robinson"
-          heading="Recieve money in any currency with no fees"
-          paragraph="The world is getting smaller and we’re becoming more mobile. So why should you be forced to only receive money in a single …"
-        />
+        <ul>
+          {
+            limitPosts.map((post) => (
+              <Article
+                img={post.frontmatter.image.url}
+                url={post.url}
+                author={post.frontmatter.author}
+                title={post.frontmatter.title}
+                description={post.frontmatter.description}
+              />
+            ))
+          }
+        </ul>
       </div>
     </div>
   </section>
+
+  <!--CSS ----------------------------------------------------------------------------------->
+
+  <style>
+    .whole-wrapper {
+      background-color: var(--Very-Light-Gray);
+      background-image: url(../../images/bg-intro-desktop.svg);
+      background-repeat: no-repeat;
+      background-size: 75%;
+      background-position: 45em -13em;
+      background-attachment: fixed;
+
+      min-height: 75dvh;
+    }
+
+    .full-bleed {
+      width: 100vw;
+      margin-left: calc(50% - 50vw);
+    }
+
+    p {
+      color: var(--Grayish-Blue);
+    }
+
+    .wrapper {
+      height: 80dvh;
+      width: clamp(600px, 100%, 1440px);
+      margin: 0 auto;
+      padding: 1rem;
+
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .heading-container {
+      width: 25em;
+    }
+
+    .heading-container > * {
+      margin-block: 1.5rem;
+    }
+
+    h1 {
+      color: var(--Dark-Blue);
+      font-size: var(--fs-800);
+      font-weight: var(--fw-400);
+      line-height: 1.2;
+    }
+
+    .main-image {
+      width: 140%;
+      position: relative;
+      z-index: 1;
+    }
+
+    .title-img {
+      position: absolute;
+      top: -440px;
+      left: 50px;
+      z-index: 1;
+    }
+
+    /*second section*/
+
+    section {
+      background-color: var(--Light-Grayish-Blue);
+    }
+
+    .second-section-wrapper {
+      max-width: 1440px;
+      min-height: 80dvh;
+      margin: auto;
+      padding: 1rem;
+    }
+
+    .second-heading-container {
+      padding-block: 4em;
+      max-width: 38em;
+    }
+
+    .card-contianer {
+      padding-block: 4em;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+    }
+
+    h2 {
+      padding-block-end: 0.75em;
+      font-weight: var(--fw-300);
+      font-size: var(--fs-700);
+    }
+
+    /*third section*/
+
+    .section-3 {
+      background-color: var(--Very-Light-Gray);
+      min-height: 80dvh;
+    }
+
+    .section-3-wrapper {
+      padding-block-start: 3rem;
+      max-width: 1440px;
+      margin: auto;
+    }
+
+    ul {
+      display: flex;
+      gap: 2rem;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      padding: 0;
+      padding-inline-start: 0px;
+    }
+  </style>
 </MainLayout>
-
-<!--CSS ----------------------------------------------------------------------------------->
-
-<style>
-  .whole-wrapper {
-    background-color: var(--Very-Light-Gray);
-    background-image: url(../../images/bg-intro-desktop.svg);
-    background-repeat: no-repeat;
-    background-size: 75%;
-    background-position: 45em -13em;
-    background-attachment: fixed;
-
-    min-height: 75dvh;
-  }
-
-  .full-bleed {
-    width: 100vw;
-    margin-left: calc(50% - 50vw);
-  }
-
-  p {
-    color: var(--Grayish-Blue);
-  }
-
-  .wrapper {
-    height: 80dvh;
-    width: clamp(600px, 100%, 1440px);
-    margin: 0 auto;
-    padding: 1rem;
-
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .heading-container {
-    width: 25em;
-  }
-
-  .heading-container > * {
-    margin-block: 1.5rem;
-  }
-
-  h1 {
-    color: var(--Dark-Blue);
-    font-size: var(--fs-800);
-    font-weight: var(--fw-400);
-    line-height: 1.2;
-  }
-
-  .main-image {
-    width: 140%;
-    position: relative;
-    z-index: 1;
-  }
-
-  .title-img {
-    position: absolute;
-    top: -440px;
-    left: 50px;
-    z-index: 1;
-  }
-
-  /*second section*/
-
-  section {
-    background-color: var(--Light-Grayish-Blue);
-  }
-
-  .second-section-wrapper {
-    max-width: 1440px;
-    min-height: 80dvh;
-    margin: auto;
-    padding: 1rem;
-  }
-
-  .second-heading-container {
-    padding-block: 4em;
-    max-width: 38em;
-  }
-
-  .card-contianer {
-    padding-block: 4em;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    gap: 1rem;
-  }
-
-  h2 {
-    padding-block-end: 0.75em;
-    font-weight: var(--fw-400);
-    font-size: var(--fs-600);
-  }
-
-  /*third section*/
-
-  .section-3 {
-    background-color: var(--Very-Light-Gray);
-    min-height: 80dvh;
-  }
-</style>
