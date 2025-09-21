@@ -3,11 +3,10 @@ import MainLayout from "../layouts/MainLayout.astro";
 import Button from "../components/Button.astro";
 import Card from "../components/Card.astro";
 import Article from "../components/Article.astro";
+import { getCollection } from "astro:content";
 
 const pageTitle = "HomePage";
-const allPosts = await Astro.glob("./posts/*.md");
-
-const limitPosts = allPosts.slice(0, 4);
+const allPosts = await getCollection("blog");
 ---
 
 <MainLayout pageTitle={pageTitle}>
@@ -74,17 +73,7 @@ const limitPosts = allPosts.slice(0, 4);
       <h2>Latest Articles</h2>
       <div class="article-contianer">
         <ul>
-          {
-            limitPosts.map((post) => (
-              <Article
-                img={post.frontmatter.image.url}
-                url={post.url}
-                author={post.frontmatter.author}
-                title={post.frontmatter.title}
-                description={post.frontmatter.description}
-              />
-            ))
-          }
+          {allPosts.map((post) => <Article title={post.data.title} />)}
         </ul>
       </div>
     </div>
