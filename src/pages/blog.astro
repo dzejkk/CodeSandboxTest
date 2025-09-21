@@ -4,7 +4,6 @@ import MainLayout from "../layouts/MainLayout.astro";
 const pageTitle = "My Money Blog";
 
 const allPosts = await getCollection("blog");
-console.log(allPosts);
 ---
 
 <MainLayout pageTitle={pageTitle}>
@@ -14,7 +13,7 @@ console.log(allPosts);
     {
       allPosts.map((post) => (
         <li>
-          <a href={`/blog/${post.id}`}>{post.data.title}</a>
+          <a href={`/posts/${post.slug}`}>{post.data.title}</a>
         </li>
       ))
     }
