@@ -9,7 +9,15 @@ rating: 3
 
 V bielorusku maju  inflaciu na brynzdu
 
-<iframe src='https://tradingeconomics.com/embed/?s=belarusinttrate&v=202509020851V20230410&h=300&w=600&ref=/belarus/interest-rate&type=stepline&d1=2022-08-31&d2=2025-08-31' height='300' width='600'  frameborder='0' scrolling='no'></iframe><br /><a href='https://tradingeconomics.com/belarus/interest-rate>tradingeconomics.com</a>
+
+<br />
+
+
+<iframe src='https://tradingeconomics.com/embed/?s=belarusinttrate&v=202509020851V20230410&h=300&w=600&ref=/belarus/interest-rate&type=stepline&d1=2022-08-31&d2=2025-08-31' height='300' width='600'  frameborder='0' scrolling='no'></iframe>
+
+<br />
+
+
 
 ```javascript
 const myAnus = (inserted) => {
@@ -18,4 +26,6 @@ const myAnus = (inserted) => {
 }
 ```
 
-sdsdsdasdsdasdfma'smd;fa:SDlf
+
+
+Omg rich text editor je riadna picovina
